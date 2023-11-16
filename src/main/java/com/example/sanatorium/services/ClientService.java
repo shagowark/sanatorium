@@ -15,4 +15,14 @@ public class ClientService {
     public List<Client>listClients(){
         return clientRepo.findAll();
     }
+    public void saveClient(Client client){
+        clientRepo.save(client);
+    }
+    public void deleteClient(Client client){
+        clientRepo.delete(client);
+    }
+
+    public Client getClientById(long id){
+        return clientRepo.findById(id).orElse(null);
+    }
 }
