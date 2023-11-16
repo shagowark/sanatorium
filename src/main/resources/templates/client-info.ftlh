@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show client</title>
+</head>
+<body>
+<form action="/clients/patch" method="post">
+    <p><label>ID: <input type="text" name="id" value="${client.id?c}" readonly></label></p>
+    <p><label>Фамилия: <input type="text" name="lastName" value="${client.lastName}"></label></p>
+    <p><label>Имя: <input type="text" name="firstName" value="${client.firstName}"></label></p>
+    <p><label>Отчество: <input type="text" name="middleName" value="${client.middleName}"></label></p>
+    <p><label>Возраст: <input type="number" name="age" value="${client.age}"></label></p>
+    <p><label>Паспортные данные (серия+номер слитно): <input type="number" name="passport" value="${client.passport?c}"></label></p>
+    <p><input type="submit" value="Сохранить"></p>
+</form>
+<form action="/clients/delete/${client.id?c}" method="post">
+    <p><input type="submit" value="Удалить"></p>
+</form>
+</body>
+</html>

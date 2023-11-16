@@ -28,15 +28,21 @@ public class ClientController {
         return "redirect:/clients";
     }
 
-    @PostMapping("/delete")
-    public String deleteClient(Client client){
-        clientService.deleteClient(client);
+    @PostMapping("/delete/{id}")
+    public String deleteClient(@PathVariable long id){
+        clientService.deleteClient(id);
         return "redirect:/clients";
     }
 
-    @GetMapping("/show/{id}")
-    public String showClient(@PathVariable("id") long id, Model model){
+    @GetMapping("/{id}")
+    public String showClient(@PathVariable long id, Model model){
         model.addAttribute("client", clientService.getClientById(id));
-        return "show";
+        return "client-info";
+    }
+
+    @PostMapping("/patch")
+    public String changeClient(Client client){
+        clientService.updateClient(client);
+        return "redirect:/clients/" + client.getId();
     }
 }

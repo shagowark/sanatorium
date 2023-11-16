@@ -16,6 +16,6 @@ public class MedicalRoomController {
     @GetMapping()
     public String medicalRooms(Model model){
         model.addAttribute("medicalRooms", medicalRoomService.listMedicalRooms());
-        return "medical_rooms";
+        return "medical-rooms";
     }
 }

@@ -18,11 +18,15 @@ public class ClientService {
     public void saveClient(Client client){
         clientRepo.save(client);
     }
-    public void deleteClient(Client client){
-        clientRepo.delete(client);
+    public void deleteClient(long id){
+        clientRepo.deleteById(id);
     }
 
     public Client getClientById(long id){
         return clientRepo.findById(id).orElse(null);
+    }
+
+    public void updateClient(Client client){
+        clientRepo.save(client);
     }
 }
