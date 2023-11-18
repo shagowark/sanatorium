@@ -40,7 +40,7 @@ public class ClientController {
         return "client-info";
     }
 
-    @PostMapping("/patch")
+    @PostMapping("/put")
     public String changeClient(Client client){
         clientService.updateClient(client);
         return "redirect:/clients/" + client.getId();
