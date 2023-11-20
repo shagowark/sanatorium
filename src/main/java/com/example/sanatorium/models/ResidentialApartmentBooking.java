@@ -20,11 +20,11 @@ public class ResidentialApartmentBooking {
     @Column(name = "id", nullable = false, unique = true)
     private long id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name="residential_apartment_id", nullable = false)
     private ResidentialApartment residentialApartment;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name="client_id", nullable = false)
     private Client client;
 

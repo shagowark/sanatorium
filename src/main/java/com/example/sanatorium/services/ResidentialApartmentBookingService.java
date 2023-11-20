@@ -14,8 +14,6 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class ResidentialApartmentBookingService {
-    private final ClientService clientService;
-    private final ResidentialApartmentService apartmentService;
     private final ResidentialApartmentBookingRepo apartmentBookingRepo;
 
     public List<ResidentialApartmentBooking> listApartmentBookings() {
@@ -23,7 +21,6 @@ public class ResidentialApartmentBookingService {
     }
 
     public void saveApartmentBooking(ResidentialApartmentBooking apartmentBooking) {
-
         apartmentBookingRepo.save(apartmentBooking);
     }
 

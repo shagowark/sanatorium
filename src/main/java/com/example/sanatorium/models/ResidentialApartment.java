@@ -1,9 +1,7 @@
 package com.example.sanatorium.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Set;
 
@@ -12,6 +10,9 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
+@EqualsAndHashCode(exclude = {"residentialApartmentBookings"})
+@ToString(exclude = {"residentialApartmentBookings"})
 public class ResidentialApartment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

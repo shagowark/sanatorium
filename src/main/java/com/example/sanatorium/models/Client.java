@@ -1,9 +1,7 @@
 package com.example.sanatorium.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -15,6 +13,8 @@ import java.util.Set;
 @NoArgsConstructor
 
 //TODO uuid
+@EqualsAndHashCode(exclude = {"residentialApartmentBookings", "medicalRoomBookings"})
+@ToString(exclude = {"residentialApartmentBookings", "medicalRoomBookings"})
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
