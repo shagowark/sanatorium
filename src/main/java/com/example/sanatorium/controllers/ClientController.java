@@ -19,7 +19,7 @@ public class ClientController {
     @GetMapping()
     public String clients(Model model){
         model.addAttribute("clients", clientService.listClients());
-        return "clients";
+        return "clients/clients";
     }
 
     @PostMapping("/create")
@@ -37,7 +37,7 @@ public class ClientController {
     @GetMapping("/{id}")
     public String showClient(@PathVariable long id, Model model){
         model.addAttribute("client", clientService.getClientById(id));
-        return "client-info";
+        return "clients/client-info";
     }
 
     @PostMapping("/put")

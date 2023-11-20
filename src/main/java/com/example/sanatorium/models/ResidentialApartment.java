@@ -15,13 +15,13 @@ import java.util.Set;
 public class ResidentialApartment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false, unique = true)
+    @Column(name = "id", nullable = false, unique = true)
     private long id;
 
-    @Column(nullable = false)
+    @Column(name = "rooms_number", nullable = false)
     private int roomsNumber;
 
-    @Column(nullable = false)
+    @Column(name = "price_one_night", nullable = false)
     private int priceOneNight;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "residentialApartment")

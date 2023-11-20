@@ -18,7 +18,7 @@ public class MedicalRoomBooking {
     private long id;
 
     @ManyToOne(cascade = CascadeType.REFRESH)
-    @JoinColumn(name="medicalRoom_id", nullable = false)
+    @JoinColumn(name="medical_room_id", nullable = false)
     private MedicalRoom medicalRoom;
 
     @ManyToOne(cascade = CascadeType.REFRESH)

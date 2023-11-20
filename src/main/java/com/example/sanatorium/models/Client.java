@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -12,25 +13,27 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
+//TODO uuid
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false, unique = true)
+    @Column(name = "id", nullable = false, unique = true)
     private long id;
 
-    @Column(nullable = false)
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(nullable = false)
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column()
+    @Column(name = "middle_name")
     private String middleName;
 
-    @Column(nullable = false)
+    @Column(name = "age", nullable = false)
     private int age;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "passport",nullable = false, unique = true)
     private int passport;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")

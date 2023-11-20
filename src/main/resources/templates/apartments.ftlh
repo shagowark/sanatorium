@@ -5,7 +5,7 @@
     <#list apartments as apartment>
         <div>
             <p>${apartment?index + 1}) Цена за ночь: ${apartment.priceOneNight} Кол-во
-                комнат:${apartment.roomsNumber}</p>
+                комнат:${apartment.getRoomsNumber()}</p>
         </div>
     </#list>
 </@base.page>
