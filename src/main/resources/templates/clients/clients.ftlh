@@ -34,10 +34,4 @@
         </#foreach>
     </table>
 
-<#--<#list clients as client>-->
-<#--    <div>-->
-<#--        <p><a href="/clients/${client.id?c}"> ${client?index + 1}) ${client.lastName} ${client.firstName} ${client.middleName} ${client.age}</a></p>-->
-<#--    </div>-->
-<#--</#list>-->
-
 </@base.page>
