@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -18,11 +19,11 @@ public class ClientService {
     public void saveClient(Client client){
         clientRepo.save(client);
     }
-    public void deleteClient(long id){
+    public void deleteClient(UUID id){
         clientRepo.deleteById(id);
     }
 
-    public Client getClientById(long id){
+    public Client getClientById(UUID id){
         return clientRepo.findById(id).orElse(null);
     }
 

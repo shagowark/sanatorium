@@ -22,9 +22,9 @@
         </tr>
         <#foreach apartmentBooking in apartmentBookings>
             <tr>
-                <td><a href="/apartment-bookings/${apartmentBooking.id?c}">${apartmentBooking.id?c}</a></td>
-                <td>${apartmentBooking.residentialApartment.id?c}</td>
-                <td>${apartmentBooking.client.id?c}</td>
+                <td><a href="/apartment-bookings/${apartmentBooking.id}">${apartmentBooking.id}</a></td>
+                <td>${apartmentBooking.residentialApartment.id}</td>
+                <td>${apartmentBooking.client.id}</td>
                 <td>${apartmentBooking.getFormattedArrivalDateTime()}</td>
                 <td>${apartmentBooking.getFormattedDepartureDateTime()}</td>
             </tr>

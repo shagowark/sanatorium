@@ -7,10 +7,11 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 
 @Entity
-@Table(name="residential_apartment_bookings")
+@Table(name="residential_apartment_booking")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,7 +19,7 @@ public class ResidentialApartmentBooking {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false, unique = true)
-    private long id;
+    private UUID id;
 
     @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name="residential_apartment_id", nullable = false)

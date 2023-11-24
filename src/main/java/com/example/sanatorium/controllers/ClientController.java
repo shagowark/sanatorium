@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.UUID;
+//TODO бронь медицины
 @Controller
 @RequestMapping("/clients")
 @RequiredArgsConstructor
@@ -29,13 +31,13 @@ public class ClientController {
     }
 
     @PostMapping("/delete/{id}")
-    public String deleteClient(@PathVariable long id){
+    public String deleteClient(@PathVariable UUID id){
         clientService.deleteClient(id);
         return "redirect:/clients";
     }
 
     @GetMapping("/{id}")
-    public String showClient(@PathVariable long id, Model model){
+    public String showClient(@PathVariable UUID id, Model model){
         model.addAttribute("client", clientService.getClientById(id));
         return "clients/client-info";
     }

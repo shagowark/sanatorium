@@ -3,11 +3,11 @@ package com.example.sanatorium.models;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
-@Table(name="clients")
+@Table(name="client")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,7 +19,7 @@ public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false, unique = true)
-    private long id;
+    private UUID id;
 
     @Column(name = "last_name", nullable = false)
     private String lastName;

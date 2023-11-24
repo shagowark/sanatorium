@@ -1,4 +1,4 @@
-<#import "parts/common-base.ftlh" as base>
+<#import "../parts/common-base.ftlh" as base>
 
 <@base.page>
     <p><a href="/home">Основная страница</a></p>

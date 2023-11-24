@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Set;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/apartment-bookings")
@@ -34,13 +35,13 @@ public class ResidentialApartmentBookingController {
     }
 
     @PostMapping("/delete/{id}")
-    public String deleteApartmentBooking(@PathVariable long id) {
+    public String deleteApartmentBooking(@PathVariable UUID id) {
         apartmentBookingService.deleteApartmentBooking(id);
         return "redirect:/apartment-bookings";
     }
 
     @GetMapping("/{id}")
-    public String showApartmentBooking(@PathVariable long id, Model model) {
+    public String showApartmentBooking(@PathVariable UUID id, Model model) {
         ResidentialApartment apartment = apartmentBookingService.getApartmentBookingById(id).getResidentialApartment();
         Set<ResidentialApartmentBooking> asd = apartment.getResidentialApartmentBookings();
         model.addAttribute("apartmentBooking", apartmentBookingService.getApartmentBookingById(id));

@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Table(name="staff")
@@ -17,7 +18,7 @@ public class Staff {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, unique = true)
-    private long id;
+    private UUID id;
 
     @Column(nullable = false)
     private String lastName;

@@ -6,9 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
-@Table(name="procedures")
+@Table(name="procedure")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,7 +17,7 @@ public class Procedure {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, unique = true)
-    private long id;
+    private UUID id;
 
     @Column(nullable = false)
     private String name;

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -24,11 +25,11 @@ public class ResidentialApartmentBookingService {
         apartmentBookingRepo.save(apartmentBooking);
     }
 
-    public void deleteApartmentBooking(long id) {
+    public void deleteApartmentBooking(UUID id) {
         apartmentBookingRepo.deleteById(id);
     }
 
-    public ResidentialApartmentBooking getApartmentBookingById(long id) {
+    public ResidentialApartmentBooking getApartmentBookingById(UUID id) {
         return apartmentBookingRepo.findById(id).orElse(null);
     }
 

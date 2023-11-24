@@ -4,9 +4,10 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
-@Table(name="residential_apartments")
+@Table(name="residential_apartment")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,7 +18,7 @@ public class ResidentialApartment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false, unique = true)
-    private long id;
+    private UUID id;
 
     @Column(name = "rooms_number", nullable = false)
     private int roomsNumber;

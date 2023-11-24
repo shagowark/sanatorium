@@ -5,9 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
-@Table(name="medical_room_bookings")
+@Table(name="medical_room_booking")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,7 +16,7 @@ public class MedicalRoomBooking {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, unique = true)
-    private long id;
+    private UUID id;
 
     @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name="medical_room_id", nullable = false)
