@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.UUID;
-//TODO бронь медицины
-//TODO проверку в сервисах (?) на неверные данные.
-// Например, бронь на уже занятое время
+
 @Controller
 @RequestMapping("/clients")
 @RequiredArgsConstructor

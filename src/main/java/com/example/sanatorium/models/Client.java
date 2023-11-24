@@ -12,7 +12,6 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 
-//TODO uuid
 @EqualsAndHashCode(exclude = {"residentialApartmentBookings", "medicalRoomBookings"})
 @ToString(exclude = {"residentialApartmentBookings", "medicalRoomBookings"})
 public class Client {

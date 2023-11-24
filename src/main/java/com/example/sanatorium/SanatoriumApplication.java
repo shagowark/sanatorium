@@ -12,3 +12,17 @@ public class SanatoriumApplication {
     }
 
 }
+
+//TODO security
+
+//TODO filtration (>1 param)
+
+//TODO pagination
+
+//TODO static info
+
+//TODO beautiful web ui
+
+//TODO проверку в сервисах (?) на неверные данные.
+// Например, бронь на уже занятое время
+
