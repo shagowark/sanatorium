@@ -4,11 +4,11 @@
     <p><a href="/home">Основная страница</a></p>
     <b>Добавить клиента</b>
     <form action="/clients/create" method="post">
-        <p><label>Фамилия: <input type="text" name="lastName"></label></p>
-        <p><label>Имя: <input type="text" name="firstName"></label></p>
-        <p><label>Отчество: <input type="text" name="middleName"></label></p>
-        <p><label>Возраст: <input type="number" name="age"></label></p>
-        <p><label>Паспортные данные (серия+номер слитно): <input type="number" name="passport"></label></p>
+        <p><label>Фамилия: <input type="text" name="lastName" required></label></p>
+        <p><label>Имя: <input type="text" name="firstName" required></label></p>
+        <p><label>Отчество: <input type="text" name="middleName" required></label></p>
+        <p><label>Возраст: <input type="number" name="age" required></label></p>
+        <p><label>Паспортные данные (серия+номер слитно): <input type="number" name="passport" required></label></p>
         <p><label><input type="submit" value="Добавить"></label></p>
     </form>
     <b>Список клиентов</b>

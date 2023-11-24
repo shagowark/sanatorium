@@ -2,34 +2,25 @@
 
 <@base.page>
     <p><a href="/home">Основная страница</a></p>
-    <b>Добавить клиента</b>
-    <form action="/clients/create" method="post">
-        <p><label>Фамилия: <input type="text" name="lastName"></label></p>
-        <p><label>Имя: <input type="text" name="firstName"></label></p>
-        <p><label>Отчество: <input type="text" name="middleName"></label></p>
-        <p><label>Возраст: <input type="number" name="age"></label></p>
-        <p><label>Паспортные данные (серия+номер слитно): <input type="number" name="passport"></label></p>
+    <b>Добавить жилую комнату</b>
+    <form action="/apartments/create" method="post">
+        <p><label>Кол-во комнат: <input type="text" name="roomsNumber" required></label></p>
+        <p><label>Цена за ночь: <input type="text" name="priceOneNight" required></label></p>
         <p><label><input type="submit" value="Добавить"></label></p>
     </form>
-    <b>Список клиентов</b>
+    <b>Список жилых комнат</b>
 
     <table class="table table-bordered">
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">Фамилия</th>
-            <th scope="col">Имя</th>
-            <th scope="col">Отчество</th>
-            <th scope="col">Возраст</th>
-            <th scope="col">Паспортные данные</th>
+            <th scope="col">Кол-во комнат</th>
+            <th scope="col">Цена за ночь</th>
         </tr>
-        <#foreach client in clients>
+        <#foreach apartment in apartments>
             <tr>
-                <td><a href="/clients/${client.id}">${client.id}</a></td>
-                <td>${client.lastName}</td>
-                <td>${client.firstName}</td>
-                <td>${client.middleName}</td>
-                <td>${client.age}</td>
-                <td>${client.passport?c}</td>
+                <td><a href="/apartments/${apartment.id}">${apartment.id}</a></td>
+                <td>${apartment.roomsNumber}</td>
+                <td>${apartment.priceOneNight}</td>
             </tr>
         </#foreach>
     </table>

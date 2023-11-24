@@ -36,7 +36,7 @@ public class ResidentialApartmentBooking {
     private LocalDateTime departureDateTime;
 
     @Transient
-    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy hh:mm");
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:hh:mm");
 
     public String getFormattedArrivalDateTime(){
         return arrivalDateTime.format(formatter);

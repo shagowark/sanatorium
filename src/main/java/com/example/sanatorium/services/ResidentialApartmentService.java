@@ -1,6 +1,5 @@
 package com.example.sanatorium.services;
 
-import com.example.sanatorium.models.Client;
 import com.example.sanatorium.models.ResidentialApartment;
 import com.example.sanatorium.repos.ResidentialApartmentRepo;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +16,7 @@ public class ResidentialApartmentService {
     public List<ResidentialApartment> listApartments(){
         return apartmentRepo.findAll();
     }
-    public ResidentialApartment getResidentialApartmentById(UUID id){
+    public ResidentialApartment getApartmentById(UUID id){
         return apartmentRepo.findById(id).orElse(null);
     }
 
@@ -25,4 +24,11 @@ public class ResidentialApartmentService {
         apartmentRepo.save(apartment);
     }
 
+    public void deleteApartment(UUID id) {
+        apartmentRepo.deleteById(id);
+    }
+
+    public void updateApartment(ResidentialApartment apartment) {
+        apartmentRepo.save(apartment);
+    }
 }

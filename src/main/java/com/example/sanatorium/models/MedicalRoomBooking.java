@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 @Entity
@@ -35,8 +36,19 @@ public class MedicalRoomBooking {
     private Client client;
 
     @Column(nullable = false)
-    private LocalDateTime startTime;
+    private LocalDateTime startDateTime;
 
     @Column(nullable = false)
-    private LocalDateTime endTime;
+    private LocalDateTime endDateTime;
+
+    @Transient
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+
+    public String getFormattedStartDateTime(){
+        return startDateTime.format(formatter);
+    }
+
+    public String getFormattedEndDateTime(){
+        return endDateTime.format(formatter);
+    }
 }

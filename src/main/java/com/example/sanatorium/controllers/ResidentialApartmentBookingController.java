@@ -23,7 +23,7 @@ public class ResidentialApartmentBookingController {
     private final ResidentialApartmentBookingService apartmentBookingService;
 
     @GetMapping()
-    public String apartmentBooking(Model model) {
+    public String apartmentBookings(Model model) {
         model.addAttribute("apartmentBookings", apartmentBookingService.listApartmentBookings());
         return "apartmentsBooking/apartment-bookings";
     }
@@ -42,8 +42,6 @@ public class ResidentialApartmentBookingController {
 
     @GetMapping("/{id}")
     public String showApartmentBooking(@PathVariable UUID id, Model model) {
-        ResidentialApartment apartment = apartmentBookingService.getApartmentBookingById(id).getResidentialApartment();
-        Set<ResidentialApartmentBooking> asd = apartment.getResidentialApartmentBookings();
         model.addAttribute("apartmentBooking", apartmentBookingService.getApartmentBookingById(id));
         return "apartmentsBooking/apartment-booking-info";
     }

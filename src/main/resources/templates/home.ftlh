@@ -4,6 +4,9 @@
 <body>
 <p><a href="/clients">Клиенты</a></p>
 <p><a href="/apartments">Жилые комнаты</a></p>
-<p><a href="/medical_rooms">Медицинские кабинеты</a></p>
+<p><a href="/medical-rooms">Медицинские кабинеты</a></p>
+<p><a href="/procedures">Процедуры</a></p>
+<p><a href="/staff">Персонал</a></p>
 <p><a href="/apartment-bookings">Бронь номеров</a></p>
+<p><a href="/medical-room-bookings">Бронь медицинских кабинетов</a></p>
 </@base.page>
