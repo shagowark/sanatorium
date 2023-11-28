@@ -25,3 +25,18 @@
     </body>
     </html>
 </#macro>
+
+<#macro login path button>
+<form action="${path}" method="post">
+    <div class="form-group">
+        <label> Имя пользователя:</label>
+        <input class="form-control" type="text" name="username"/>
+    </div>
+    <div class="form-group">
+        <label> Пароль: </label>
+        <input class="form-control" type="password" name="password"/>
+    </div>
+    <input type="hidden" name="_csrf" value="${_csrf.token}">
+    <div><input type="submit" value=${button}></div>
+</form>
+</#macro>

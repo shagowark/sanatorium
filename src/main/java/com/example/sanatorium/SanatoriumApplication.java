@@ -21,9 +21,9 @@ public class SanatoriumApplication {
 
 //TODO static info
 
+//TODO тесты
+
 //TODO beautiful web ui
 
 //TODO проверку в сервисах (?) на неверные данные.
 // Например, бронь на уже занятое время
-
-//TODO сервисы через интерфейсы

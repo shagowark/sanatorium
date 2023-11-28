@@ -25,7 +25,7 @@ public class RegistrationController {
     }
 
     @PostMapping
-    public String addUser(User user){
+    public String registerUser(User user){
         User userFromDb = userRepo.findByUsername(user.getUsername());
 
         if (userFromDb != null){
