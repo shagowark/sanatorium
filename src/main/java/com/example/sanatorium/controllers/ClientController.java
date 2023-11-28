@@ -2,6 +2,7 @@ package com.example.sanatorium.controllers;
 
 import com.example.sanatorium.models.Client;
 import com.example.sanatorium.services.ClientService;
+import com.example.sanatorium.services.impl.ClientServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,31 +21,31 @@ public class ClientController {
 
     @GetMapping()
     public String clients(Model model){
-        model.addAttribute("clients", clientService.listClients());
+        model.addAttribute("clients", clientService.listAll());
         return "clients/clients";
     }
 
     @PostMapping("/create")
     public String createClient(Client client){
-        clientService.saveClient(client);
+        clientService.saveOne(client);
         return "redirect:/clients";
     }
 
     @PostMapping("/delete/{id}")
     public String deleteClient(@PathVariable UUID id){
-        clientService.deleteClient(id);
+        clientService.deleteOneById(id);
         return "redirect:/clients";
     }
 
     @GetMapping("/{id}")
     public String showClient(@PathVariable UUID id, Model model){
-        model.addAttribute("client", clientService.getClientById(id));
+        model.addAttribute("client", clientService.getOneById(id));
         return "clients/client-info";
     }
 
     @PostMapping("/put")
     public String changeClient(Client client){
-        clientService.updateClient(client);
+        clientService.updateOne(client);
         return "redirect:/clients/" + client.getId();
     }
 }

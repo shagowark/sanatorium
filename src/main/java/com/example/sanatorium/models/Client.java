@@ -33,7 +33,7 @@ public class Client {
     private int age;
 
     @Column(name = "passport",nullable = false, unique = true)
-    private int passport;
+    private long passport;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
     private Set<ResidentialApartmentBooking> residentialApartmentBookings;

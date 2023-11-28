@@ -19,31 +19,31 @@ public class StaffController {
 
     @GetMapping()
     public String staff(Model model){
-        model.addAttribute("staff", staffService.listStaff());
+        model.addAttribute("staff", staffService.listAll());
         return "staff/staff";
     }
 
     @PostMapping("/create")
     public String createStaff(Staff staff){
-        staffService.saveStaff(staff);
+        staffService.saveOne(staff);
         return "redirect:/staff";
     }
 
     @PostMapping("/delete/{id}")
     public String deleteStaff(@PathVariable UUID id){
-        staffService.deleteStaff(id);
+        staffService.deleteOneById(id);
         return "redirect:/staff";
     }
 
     @GetMapping("/{id}")
     public String showStaff(@PathVariable UUID id, Model model){
-        model.addAttribute("staff", staffService.getStaffById(id));
+        model.addAttribute("staff", staffService.getOneById(id));
         return "staff/staff-info";
     }
 
     @PostMapping("/put")
     public String changeStaff(Staff staff){
-        staffService.updateStaff(staff);
+        staffService.updateOne(staff);
         return "redirect:/staff/" + staff.getId();
     }
 }

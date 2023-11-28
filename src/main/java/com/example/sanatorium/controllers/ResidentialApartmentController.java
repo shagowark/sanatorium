@@ -20,31 +20,31 @@ public class ResidentialApartmentController {
 
     @GetMapping
     public String apartments(Model model){
-        model.addAttribute("apartments", apartmentService.listApartments());
+        model.addAttribute("apartments", apartmentService.listAll());
         return "apartments/apartments";
     }
 
     @PostMapping("/create")
     public String createApartment(ResidentialApartment apartment){
-        apartmentService.saveApartment(apartment);
+        apartmentService.saveOne(apartment);
         return "redirect:/apartments";
     }
 
     @PostMapping("/delete/{id}")
     public String deleteApartment(@PathVariable UUID id){
-        apartmentService.deleteApartment(id);
+        apartmentService.deleteOneById(id);
         return "redirect:/apartments";
     }
 
     @GetMapping("/{id}")
     public String showApartment(@PathVariable UUID id, Model model){
-        model.addAttribute("apartment", apartmentService.getApartmentById(id));
+        model.addAttribute("apartment", apartmentService.getOneById(id));
         return "apartments/apartment-info";
     }
 
     @PostMapping("/put")
     public String changeApartment(ResidentialApartment apartment){
-        apartmentService.updateApartment(apartment);
+        apartmentService.updateOne(apartment);
         return "redirect:/apartments/" + apartment.getId();
     }
 }

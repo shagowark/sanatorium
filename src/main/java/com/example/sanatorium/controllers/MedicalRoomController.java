@@ -20,31 +20,31 @@ public class MedicalRoomController {
 
     @GetMapping()
     public String medicalRooms(Model model){
-        model.addAttribute("medicalRooms", medicalRoomService.listMedicalRooms());
+        model.addAttribute("medicalRooms", medicalRoomService.listAll());
         return "medicalRooms/medical-rooms";
     }
 
     @PostMapping("/create")
     public String createMedicalRoom(MedicalRoom medicalRoom){
-        medicalRoomService.saveMedicalRoom(medicalRoom);
+        medicalRoomService.saveOne(medicalRoom);
         return "redirect:/medical-rooms";
     }
 
     @PostMapping("/delete/{id}")
     public String deleteMedicalRoom(@PathVariable UUID id){
-        medicalRoomService.deleteMedicalRoom(id);
+        medicalRoomService.deleteOneById(id);
         return "redirect:/medical-rooms";
     }
 
     @GetMapping("/{id}")
     public String showMedicalRoom(@PathVariable UUID id, Model model){
-        model.addAttribute("medicalRoom", medicalRoomService.getMedicalRoomById(id));
+        model.addAttribute("medicalRoom", medicalRoomService.getOneById(id));
         return "medicalRooms/medical-room-info";
     }
 
     @PostMapping("/put")
     public String changeMedicalRoom(MedicalRoom medicalRoom){
-        medicalRoomService.updateMedicalRoom(medicalRoom);
+        medicalRoomService.updateOne(medicalRoom);
         return "redirect:/medical-rooms/" + medicalRoom.getId();
     }
 }
