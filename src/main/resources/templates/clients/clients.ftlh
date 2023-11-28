@@ -9,6 +9,7 @@
         <p><label>Отчество: <input type="text" name="middleName" required></label></p>
         <p><label>Возраст: <input type="number" name="age" required></label></p>
         <p><label>Паспортные данные (серия+номер слитно): <input type="number" name="passport" required></label></p>
+        <input type="hidden" name="_csrf" value="${_csrf.token}">
         <p><label><input type="submit" value="Добавить"></label></p>
     </form>
     <b>Список клиентов</b>

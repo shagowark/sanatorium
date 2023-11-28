@@ -8,6 +8,7 @@
         <p><label>Имя: <input type="text" name="firstName" required></label></p>
         <p><label>Отчество: <input type="text" name="middleName" required></label></p>
         <p><label>Профессия: <input type="text" name="profession" required></label></p>
+        <input type="hidden" name="_csrf" value="${_csrf.token}">
         <p><label><input type="submit" value="Добавить"></label></p>
     </form>
     <b>Список персонала</b>

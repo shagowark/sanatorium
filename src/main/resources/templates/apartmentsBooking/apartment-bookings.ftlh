@@ -8,6 +8,7 @@
         <p><label>ID клиента: <input type="text" name="client" required></label></p>
         <p><label>Дата заселения: <input type="datetime-local" name="arrivalDateTime" required></label></p>
         <p><label>Дата выселения: <input type="datetime-local" name="departureDateTime" required></label></p>
+        <input type="hidden" name="_csrf" value="${_csrf.token}">
         <p><label><input type="submit" value="Добавить"></label></p>
     </form>
     <b>Список броней</b>

@@ -9,4 +9,11 @@
 <p><a href="/staff">Персонал</a></p>
 <p><a href="/apartment-bookings">Бронь номеров</a></p>
 <p><a href="/medical-room-bookings">Бронь медицинских кабинетов</a></p>
+
+<br>
+
+<form action="/logout" method="post">
+    <input type="submit" value="Выйти из аккаунта">
+    <input type="hidden" name="_csrf" value="${_csrf.token}">
+</form>
 </@base.page>

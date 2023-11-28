@@ -6,6 +6,7 @@
     <form action="/apartments/create" method="post">
         <p><label>Кол-во комнат: <input type="text" name="roomsNumber" required></label></p>
         <p><label>Цена за ночь: <input type="text" name="priceOneNight" required></label></p>
+        <input type="hidden" name="_csrf" value="${_csrf.token}">
         <p><label><input type="submit" value="Добавить"></label></p>
     </form>
     <b>Список жилых комнат</b>

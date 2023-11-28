@@ -9,9 +9,11 @@
         <p><label>Имя: <input type="text" name="firstName" value="${staff.firstName}" required></label></p>
         <p><label>Отчество: <input type="text" name="middleName" value="${staff.middleName}" required></label></p>
         <p><label>Профессия: <input type="text" name="profession" value="${staff.profession}" required></label></p>
+        <input type="hidden" name="_csrf" value="${_csrf.token}">
         <p><input type="submit" value="Сохранить"></p>
     </form>
     <form action="/staff/delete/${staff.id}" method="post">
+        <input type="hidden" name="_csrf" value="${_csrf.token}">
         <p><input type="submit" value="Удалить"></p>
     </form>
 </@base.page>

@@ -10,10 +10,12 @@
         <p><label>ID персонала: <input type="text" name="staff" value="${medicalRoomBooking.staff.id}" required></label></p>
         <p><label>ID клиента: <input type="text" name="client" value="${medicalRoomBooking.client.id}" required></label></p>
         <p><label>Дата начала: <input type="datetime-local" name="startDateTime" value="${medicalRoomBooking.startDateTime.withSecond(0).withNano(0)}" required></label></p>
-        <p><label>Дата коцна: <input type="datetime-local" name="endDateTime" value="${medicalRoomBooking.endDateTime.withSecond(0).withNano(0)}" required></label></p>
+        <p><label>Дата конца: <input type="datetime-local" name="endDateTime" value="${medicalRoomBooking.endDateTime.withSecond(0).withNano(0)}" required></label></p>
+        <input type="hidden" name="_csrf" value="${_csrf.token}">
         <p><input type="submit" value="Сохранить"></p>
     </form>
     <form action="/medical-room-bookings/delete/${medicalRoomBooking.id}" method="post">
+        <input type="hidden" name="_csrf" value="${_csrf.token}">
         <p><input type="submit" value="Удалить"></p>
     </form>
 </@base.page>

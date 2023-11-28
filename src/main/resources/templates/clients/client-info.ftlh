@@ -11,9 +11,11 @@
         <p><label>Возраст: <input type="number" name="age" value="${client.age?c}" required></label></p>
         <p><label>Паспортные данные (серия+номер слитно): <input type="number" name="passport"
                                                                  value="${client.passport?c}" required></label></p>
+        <input type="hidden" name="_csrf" value="${_csrf.token}">
         <p><input type="submit" value="Сохранить"></p>
     </form>
     <form action="/clients/delete/${client.id}" method="post">
+        <input type="hidden" name="_csrf" value="${_csrf.token}">
         <p><input type="submit" value="Удалить"></p>
     </form>
 </@base.page>

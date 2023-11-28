@@ -6,6 +6,7 @@
     <form action="/procedures/create" method="post">
         <p><label>Название: <input type="text" name="name" required></label></p>
         <p><label>Длительность (мин.): <input type="text" name="durationMinutes" required></label></p>
+        <input type="hidden" name="_csrf" value="${_csrf.token}">
         <p><label><input type="submit" value="Добавить"></label></p>
     </form>
     <b>Список процедур</b>

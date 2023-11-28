@@ -6,6 +6,7 @@
     <form action="/medical-rooms/create" method="post">
         <p><label>Номер: <input type="text" name="number" required></label></p>
         <p><label>Название: <input type="text" name="name" required></label></p>
+        <input type="hidden" name="_csrf" value="${_csrf.token}">
         <p><label><input type="submit" value="Добавить"></label></p>
     </form>
     <b>Список медицинских кабинетов</b>

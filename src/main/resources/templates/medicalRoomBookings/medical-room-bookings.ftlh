@@ -10,6 +10,7 @@
         <p><label>ID клиента: <input type="text" name="client" required></label></p>
         <p><label>Дата начала: <input type="datetime-local" name="startDateTime" required></label></p>
         <p><label>Дата конца: <input type="datetime-local" name="endDateTime" required></label></p>
+        <input type="hidden" name="_csrf" value="${_csrf.token}">
         <p><label><input type="submit" value="Добавить"></label></p>
     </form>
     <b>Список броней</b>

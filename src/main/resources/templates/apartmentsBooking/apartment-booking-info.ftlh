@@ -9,9 +9,11 @@
         <p><label>ID клиента: <input type="text" name="client" value="${apartmentBooking.client.id}" required></label></p>
         <p><label>Дата заезда: <input type="datetime-local" name="arrivalDateTime" value="${apartmentBooking.arrivalDateTime.withSecond(0).withNano(0)}" required></label></p>
         <p><label>Дата выезда: <input type="datetime-local" name="departureDateTime" value="${apartmentBooking.departureDateTime.withSecond(0).withNano(0)}" required></label></p>
+        <input type="hidden" name="_csrf" value="${_csrf.token}">
         <p><input type="submit" value="Сохранить"></p>
     </form>
     <form action="/apartment-bookings/delete/${apartmentBooking.id}" method="post">
+        <input type="hidden" name="_csrf" value="${_csrf.token}">
         <p><input type="submit" value="Удалить"></p>
     </form>
 </@base.page>
