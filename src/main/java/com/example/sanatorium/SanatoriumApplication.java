@@ -13,7 +13,11 @@ public class SanatoriumApplication {
 
 }
 
+//TODO проверить в сервисах при update, что есть уже такой экземпляр
+
 //TODO security
+
+//TODO навесить @Transactional в сервисах?
 
 //TODO filtration (>1 param)
 

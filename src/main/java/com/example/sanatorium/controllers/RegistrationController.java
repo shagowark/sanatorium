@@ -26,7 +26,7 @@ public class RegistrationController {
 
     @PostMapping
     public String registerUser(User user){
-        User userFromDb = userRepo.findByUsername(user.getUsername());
+        User userFromDb = userRepo.findByUsername(user.getUsername()).orElse(null);
 
         if (userFromDb != null){
             return "auth/registration";
@@ -34,7 +34,7 @@ public class RegistrationController {
 
         user.setActive(true);
         HashSet<Role> roles = new HashSet<>();
-        roles.add(roleRepo.findByName("user"));
+        roles.add(roleRepo.findByName("user").orElse(null)); // TODO переделать orElse
         user.setRoles(roles);
         userRepo.save(user);
         return "redirect:/login";
