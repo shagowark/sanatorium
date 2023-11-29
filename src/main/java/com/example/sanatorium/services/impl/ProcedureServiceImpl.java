@@ -3,6 +3,7 @@ package com.example.sanatorium.services.impl;
 import com.example.sanatorium.models.Procedure;
 import com.example.sanatorium.repos.ProcedureRepo;
 import com.example.sanatorium.services.ProcedureService;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +36,10 @@ public class ProcedureServiceImpl implements ProcedureService {
     }
 
     @Override
-    public void updateOne(Procedure procedure) {
+    public void updateOne(Procedure procedure) throws EntityNotFoundException {
+        if (getOneById(procedure.getId()) == null){
+            throw new EntityNotFoundException("Procedure doesn't exists");
+        }
         procedureRepo.save(procedure);
     }
 }

@@ -3,6 +3,7 @@ package com.example.sanatorium.services.impl;
 import com.example.sanatorium.models.Client;
 import com.example.sanatorium.repos.ClientRepo;
 import com.example.sanatorium.services.ClientService;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +36,10 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public void updateOne(Client client) {
+    public void updateOne(Client client) throws EntityNotFoundException{
+        if (getOneById(client.getId()) == null){
+            throw new EntityNotFoundException("Client doesn't exists");
+        }
         clientRepo.save(client);
     }
 }

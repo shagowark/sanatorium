@@ -3,6 +3,7 @@ package com.example.sanatorium.services.impl;
 import com.example.sanatorium.models.MedicalRoom;
 import com.example.sanatorium.repos.MedicalRoomRepo;
 import com.example.sanatorium.services.MedicalRoomService;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +36,10 @@ public class MedicalRoomServiceImpl implements MedicalRoomService {
     }
 
     @Override
-    public void updateOne(MedicalRoom medicalRoom) {
+    public void updateOne(MedicalRoom medicalRoom) throws EntityNotFoundException {
+        if (getOneById(medicalRoom.getId()) == null){
+            throw new EntityNotFoundException("Medical room doesn't exists");
+        }
         medicalRoomRepo.save(medicalRoom);
     }
 }

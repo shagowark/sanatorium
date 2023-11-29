@@ -6,6 +6,7 @@ import com.example.sanatorium.models.ResidentialApartmentBooking;
 import com.example.sanatorium.repos.ResidentialApartmentBookingRepo;
 import com.example.sanatorium.services.ResidentialApartmentBookingService;
 import com.example.sanatorium.services.ResidentialApartmentService;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,7 +41,10 @@ public class ResidentialApartmentBookingServiceImpl implements ResidentialApartm
     }
 
     @Override
-    public void updateOne(ResidentialApartmentBooking apartmentBooking) {
+    public void updateOne(ResidentialApartmentBooking apartmentBooking) throws EntityNotFoundException {
+        if (getOneById(apartmentBooking.getId()) == null){
+            throw new EntityNotFoundException("Residential apartment booking doesn't exists");
+        }
         apartmentBookingRepo.save(apartmentBooking);
     }
 }

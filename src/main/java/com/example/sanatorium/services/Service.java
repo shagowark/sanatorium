@@ -1,7 +1,6 @@
 package com.example.sanatorium.services;
 
-import com.example.sanatorium.models.Client;
-import com.example.sanatorium.repos.ClientRepo;
+import jakarta.persistence.EntityNotFoundException;
 
 import java.util.List;
 import java.util.UUID;
@@ -13,5 +12,5 @@ public interface Service <T>{
 
     T getOneById(UUID id);
 
-    void updateOne(T t);
+    void updateOne(T t) throws EntityNotFoundException;
 }

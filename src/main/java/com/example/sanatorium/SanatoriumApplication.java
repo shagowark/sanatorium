@@ -13,7 +13,7 @@ public class SanatoriumApplication {
 
 }
 
-//TODO проверить в сервисах при update, что есть уже такой экземпляр
+//TODO обработать в контроллерах ошибку при update, добавить сообщение в Model, сообщить на странице
 
 //TODO security
 

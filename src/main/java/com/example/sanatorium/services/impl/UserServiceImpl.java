@@ -3,6 +3,7 @@ package com.example.sanatorium.services.impl;
 import com.example.sanatorium.models.User;
 import com.example.sanatorium.repos.UserRepo;
 import com.example.sanatorium.services.UserService;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -37,7 +38,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public void updateOne(User user) {
+    public void updateOne(User user) throws EntityNotFoundException {
+        if (getOneById(user.getId()) == null){
+            throw new EntityNotFoundException("User doesn't exists");
+        }
         userRepo.save(user);
     }
 

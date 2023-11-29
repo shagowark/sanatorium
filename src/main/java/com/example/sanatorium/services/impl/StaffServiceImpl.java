@@ -3,6 +3,7 @@ package com.example.sanatorium.services.impl;
 import com.example.sanatorium.models.Staff;
 import com.example.sanatorium.repos.StaffRepo;
 import com.example.sanatorium.services.StaffService;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +36,10 @@ public class StaffServiceImpl implements StaffService {
     }
 
     @Override
-    public void updateOne(Staff staff) {
+    public void updateOne(Staff staff) throws EntityNotFoundException {
+        if (getOneById(staff.getId()) == null){
+            throw new EntityNotFoundException("Staff doesn't exists");
+        }
         staffRepo.save(staff);
     }
 }
