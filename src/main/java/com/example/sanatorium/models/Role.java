@@ -16,4 +16,6 @@ public class Role {
 
     @Column
     private String name;
+
+    //TODO сделать many-to-many или вообще доп. табличку (user-role)
 }

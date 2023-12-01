@@ -1,9 +1,11 @@
 package com.example.sanatorium.controllers;
 
+import com.example.sanatorium.exceptions.UserAlreadyExistAuthenticationException;
 import com.example.sanatorium.models.Role;
 import com.example.sanatorium.models.User;
 import com.example.sanatorium.repos.RoleRepo;
 import com.example.sanatorium.repos.UserRepo;
+import com.example.sanatorium.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,8 +18,7 @@ import java.util.HashSet;
 @RequestMapping("/registration")
 @RequiredArgsConstructor
 public class RegistrationController {
-    private final UserRepo userRepo;
-    private final RoleRepo roleRepo;
+    private final UserService userService;
 
     @GetMapping
     public String registration(){
@@ -26,17 +27,11 @@ public class RegistrationController {
 
     @PostMapping
     public String registerUser(User user){
-        User userFromDb = userRepo.findByUsername(user.getUsername()).orElse(null);
-
-        if (userFromDb != null){
+        try {
+            userService.createUser(user);
+            return "auth/login";
+        } catch (UserAlreadyExistAuthenticationException e){
             return "auth/registration";
         }
-
-        user.setActive(true);
-        HashSet<Role> roles = new HashSet<>();
-        roles.add(roleRepo.findByName("user").orElse(null)); // TODO переделать orElse
-        user.setRoles(roles);
-        userRepo.save(user);
-        return "redirect:/login";
     }
 }
