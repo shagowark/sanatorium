@@ -4,7 +4,7 @@
     <p><a href="/home">Основная страница</a></p>
     <p><a href="/clients">Клиенты</a></p>
     <form action="/clients/put" method="post">
-        <p><label>ID: <input type="text" name="id" value="${client.id}"  required></label></p>
+        <p><label>ID: <input type="text" name="id" value="${client.id}"  required readonly></label></p>
         <p><label>Фамилия: <input type="text" name="lastName" value="${client.lastName}" required></label></p>
         <p><label>Имя: <input type="text" name="firstName" value="${client.firstName}" required></label></p>
         <p><label>Отчество: <input type="text" name="middleName" value="${client.middleName}" required></label></p>

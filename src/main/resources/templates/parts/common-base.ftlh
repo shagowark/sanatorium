@@ -39,6 +39,6 @@
         <input class="form-control" type="password" name="password"/>
     </div>
     <input type="hidden" name="_csrf" value="${_csrf.token}">
-    <div><input type="submit" value=${button}></div>
+    <div class="form-group"><input type="submit" value=${button}></div>
 </form>
 </#macro>

@@ -15,7 +15,7 @@ public class SanatoriumApplication {
 
 //TODO обработать в контроллерах ошибку при update, добавить сообщение в Model, сообщить на странице
 
-//TODO security
+//TODO security (админ панель)
 
 //TODO навесить @Transactional в сервисах?
 

@@ -9,6 +9,8 @@
 <p><a href="/staff">Персонал</a></p>
 <p><a href="/apartment-bookings">Бронь номеров</a></p>
 <p><a href="/medical-room-bookings">Бронь медицинских кабинетов</a></p>
+<br>
+<p><a href="/users">Панель администратора</a></p>
 
 <br>
 

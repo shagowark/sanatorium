@@ -28,7 +28,7 @@ public class User {
     @Column(name = "active", nullable = false)
     private boolean active;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),

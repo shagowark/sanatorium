@@ -3,6 +3,7 @@ package com.example.sanatorium.models;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -17,5 +18,7 @@ public class Role {
     @Column
     private String name;
 
-    //TODO сделать many-to-many или вообще доп. табличку (user-role)
+//    @ManyToMany(mappedBy = "roles", cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+//    private Set<User> roles;
+    //TODO возможно доп. табличку (user-role)? с many-to-many почему-то ломается
 }
