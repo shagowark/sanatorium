@@ -1,20 +1,16 @@
 package com.example.sanatorium.controllers;
 
+import com.example.sanatorium.models.Role;
 import com.example.sanatorium.models.User;
-import com.example.sanatorium.services.ClientService;
 import com.example.sanatorium.services.RoleService;
 import com.example.sanatorium.services.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
-import java.util.UUID;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/users")
@@ -30,9 +26,16 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public String showUser(Model model, @PathVariable UUID id){
-        model.addAttribute("usr", userService.getOneById(id));
-        model.addAttribute("roles", roleService.listAll());
+    public String showUser(Model model, @PathVariable("id") User user){
+        model.addAttribute("usr", user);
+        model.addAttribute("roles", roleService.listAll(););
         return "users/user-info";
+    }
+
+    @PostMapping() //TODO включить security обратно
+    public String putUser(@RequestParam("id") User user,
+                          @RequestParam Map<String, String> form){
+        userService.updateWithRolesFromForm(user, form);
+        return "redirect:/users/" + user.getId();
     }
 }

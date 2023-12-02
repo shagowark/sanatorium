@@ -53,6 +53,21 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         userRepo.save(user);
     }
 
+    @Override
+    public void updateWithRolesFromForm(User user, Map<String, String> form) {
+        List<String> roleNames = roleService.listAll().stream().map(Role::getName).toList();
+        user.getRoles().clear();
+
+        form.keySet().forEach(r -> {
+            if (roleNames.contains(r)){
+                user.getRoles().add(
+                        roleService.findByName(r).orElse(null)
+                );
+            }
+        });
+        updateOne(user);
+    }
+
     public Optional<User> findByUsername(String username){
         return userRepo.findByUsername(username);
     }

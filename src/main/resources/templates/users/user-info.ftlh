@@ -1,4 +1,5 @@
 <#import "../parts/common-base.ftlh" as base>
+<#import "/spring.ftl" as spring/>
 
 <@base.page>
     <h2>Информация о пользователе</h2>
@@ -6,7 +7,7 @@
     <p><a href="/users">Пользователи</a></p>
 
     <div class="d-flex justify-content-left">
-        <form action="/users" method="post">
+        <form name="userForm" action="/users" method="post">
             <div class="form-group">
                 <label> ID:</label>
                 <input class="form-control" type="text" name="id" value="${usr.id}" readonly required/>
@@ -25,9 +26,9 @@
                 <label> Роли:</label>
                 <#list roles as role>
                     <div>
+                        <label>${role.name}</label>
                         <input class="form-control" type="checkbox"
-                               name="roles" ${usr.roles?seq_contains(role)?string("checked", "")}
-                               required/> ${role.name}
+                               name="${role.name}" ${usr.roles?seq_contains(role)?string("checked", "")}/>
                     </div>
                 </#list>
             </div>
