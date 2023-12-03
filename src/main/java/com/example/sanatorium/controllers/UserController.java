@@ -28,7 +28,7 @@ public class UserController {
     @GetMapping("/{id}")
     public String showUser(Model model, @PathVariable("id") User user){
         model.addAttribute("usr", user);
-        model.addAttribute("roles", roleService.listAll(););
+        model.addAttribute("roles", roleService.listAll());
         return "users/user-info";
     }
 
