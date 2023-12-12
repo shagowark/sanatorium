@@ -42,4 +42,9 @@ public class ProcedureServiceImpl implements ProcedureService {
         }
         procedureRepo.save(procedure);
     }
+
+    @Override
+    public long count() {
+        return procedureRepo.count();
+    }
 }

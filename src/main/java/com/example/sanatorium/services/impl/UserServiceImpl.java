@@ -54,6 +54,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
+    public long count() {
+        return userRepo.count();
+    }
+
+    @Override
     public void updateWithRolesFromForm(User user, Map<String, String> form) {
         List<String> roleNames = roleService.listAll().stream().map(Role::getName).toList();
         user.getRoles().clear();

@@ -13,7 +13,7 @@
         <p><label><input type="submit" value="Добавить"></label></p>
     </form>
     <b>Список персонала</b>
-    <p>Всего персонала: ${totalStaffNumber}</p>
+    <p>Всего записей в таблице: ${totalStaffNumber}</p>
     <table class="table table-bordered">
         <tr>
             <th scope="col">ID</th>

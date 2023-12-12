@@ -11,7 +11,7 @@
         <p><label><input type="submit" value="Добавить"></label></p>
     </form>
     <b>Список медицинских кабинетов</b>
-    <p>Всего медицинских кабинетов: ${totalMedicalRoomNumber}</p>
+    <p>Всего записей в таблице: ${totalMedicalRoomNumber}</p>
     <table class="table table-bordered">
         <tr>
             <th scope="col">ID</th>

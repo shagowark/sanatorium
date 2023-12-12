@@ -42,5 +42,10 @@ public class StaffServiceImpl implements StaffService {
         }
         staffRepo.save(staff);
     }
+
+    @Override
+    public long count() {
+        return staffRepo.count();
+    }
 }
 

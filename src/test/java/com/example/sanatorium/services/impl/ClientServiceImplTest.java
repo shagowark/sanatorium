@@ -25,10 +25,8 @@ class ClientServiceImplTest {
 
     @Test
     void listAll() {
-        UUID id1 = UUID.randomUUID();
-        UUID id2 = UUID.randomUUID();
-        Client client1 = new Client(id1, "LastName", "FirstName", "MiddleName", 20, 1231233L, null, null);
-        Client client2 = new Client(id2, "LastName2", "FirstName2", "MiddleName2", 10, 1299999L, null, null);
+        Client client1 = new Client(UUID.randomUUID(), "LastName", "FirstName", "MiddleName", 20, 1231233L, null, null);
+        Client client2 = new Client(UUID.randomUUID(), "LastName2", "FirstName2", "MiddleName2", 10, 1299999L, null, null);
         List<Client> expected = List.of(client1, client2);
         Mockito.when(clientRepo.findAll()).thenReturn(List.of(client1, client2));
 

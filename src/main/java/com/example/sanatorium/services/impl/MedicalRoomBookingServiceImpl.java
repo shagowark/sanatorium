@@ -43,4 +43,9 @@ public class MedicalRoomBookingServiceImpl implements MedicalRoomBookingService 
         }
         medicalRoomBookingRepo.save(medicalRoomBooking);
     }
+
+    @Override
+    public long count() {
+        return medicalRoomBookingRepo.count();
+    }
 }

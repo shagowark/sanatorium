@@ -14,7 +14,7 @@
         <p><label><input type="submit" value="Добавить"></label></p>
     </form>
     <b>Список клиентов</b>
-    <p>Всего клиентов: ${totalClientsNumber}</p>
+    <p>Всего записей в таблице: ${totalClientsNumber}</p>
     <table class="table table-bordered">
         <tr>
             <th scope="col">ID</th>

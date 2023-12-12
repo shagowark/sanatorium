@@ -11,7 +11,7 @@
         <p><label><input type="submit" value="Добавить"></label></p>
     </form>
     <b>Список процедур</b>
-    <p>Всего процедур: ${totalProceduresNumber}</p>
+    <p>Всего записей в таблице: ${totalProceduresNumber}</p>
     <table class="table table-bordered">
         <tr>
             <th scope="col">ID</th>

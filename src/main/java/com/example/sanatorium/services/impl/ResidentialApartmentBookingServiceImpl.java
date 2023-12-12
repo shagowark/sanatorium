@@ -47,4 +47,9 @@ public class ResidentialApartmentBookingServiceImpl implements ResidentialApartm
         }
         apartmentBookingRepo.save(apartmentBooking);
     }
+
+    @Override
+    public long count() {
+        return apartmentBookingRepo.count();
+    }
 }

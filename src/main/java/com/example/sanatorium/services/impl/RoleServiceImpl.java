@@ -45,6 +45,11 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
+    public long count() {
+        return roleRepo.count();
+    }
+
+    @Override
     public Optional<Role> findByName(String roleName) {
         return roleRepo.findByName(roleName);
     }

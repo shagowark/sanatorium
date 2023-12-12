@@ -42,4 +42,9 @@ public class ResidentialApartmentServiceImpl implements ResidentialApartmentServ
         }
         apartmentRepo.save(apartment);
     }
+
+    @Override
+    public long count() {
+        return apartmentRepo.count();
+    }
 }

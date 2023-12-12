@@ -11,7 +11,7 @@
         <p><label><input type="submit" value="Добавить"></label></p>
     </form>
     <b>Список жилых комнат</b>
-    <p>Всего жилых комнат: ${totalResidentialApartmentsNumber}</p>
+    <p>Всего записей в таблице: ${totalResidentialApartmentsNumber}</p>
     <table class="table table-bordered">
         <tr>
             <th scope="col">ID</th>

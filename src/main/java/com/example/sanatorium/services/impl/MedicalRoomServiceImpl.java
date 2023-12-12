@@ -42,4 +42,9 @@ public class MedicalRoomServiceImpl implements MedicalRoomService {
         }
         medicalRoomRepo.save(medicalRoom);
     }
+
+    @Override
+    public long count() {
+        return medicalRoomRepo.count();
+    }
 }

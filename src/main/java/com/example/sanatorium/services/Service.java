@@ -13,4 +13,5 @@ public interface Service <T>{
     T getOneById(UUID id);
 
     void updateOne(T t) throws EntityNotFoundException;
+    long count();
 }
