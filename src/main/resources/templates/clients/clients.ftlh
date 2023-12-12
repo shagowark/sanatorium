@@ -13,6 +13,17 @@
         <input type="hidden" name="_csrf" value="${_csrf.token}">
         <p><label><input type="submit" value="Добавить"></label></p>
     </form>
+    <hr>
+    <b>Искать клиента</b>
+    <form action="/clients" method="get">
+        <p><label>ID: <input type="text" name="id"></label></p>
+        <p><label>Фамилия: <input type="text" name="lastName"></label></p>
+        <p><label>Имя: <input type="text" name="firstName"></label></p>
+        <p><label>Отчество: <input type="text" name="middleName"></label></p>
+        <p><label>Возраст: <input type="number" name="age"></label></p>
+        <p><label>Паспортные данные (серия+номер слитно): <input type="number" name="passport"></label></p>
+        <p><label><input type="submit" value="Искать"></label></p>
+    </form>
     <b>Список клиентов</b>
     <p>Всего записей в таблице: ${totalClientsNumber}</p>
     <table class="table table-bordered">

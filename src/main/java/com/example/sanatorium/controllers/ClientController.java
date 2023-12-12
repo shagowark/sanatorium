@@ -18,9 +18,13 @@ public class ClientController {
 
     @GetMapping()
     public String clients(Model model,
+                          @RequestParam(required = false) UUID id,
+                          @RequestParam(required = false) String lastName,
                           @RequestParam(required = false) String firstName,
-                          @RequestParam(required = false) Integer age){
-        List<Client> clients = clientService.listAll(firstName, age);
+                          @RequestParam(required = false) String middleName,
+                          @RequestParam(required = false) Integer age,
+                          @RequestParam(required = false) Long passport){
+        List<Client> clients = clientService.listAll(id, lastName, firstName, middleName, age, passport);
         model.addAttribute("clients", clients);
         model.addAttribute("totalClientsNumber", clientService.count());
         return "clients/clients";

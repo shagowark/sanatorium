@@ -27,10 +27,20 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public List<Client> listAll(String firstName, Integer age) {
-        Specification<Client> clientFirstNameSpecification = getSpecialization("firstName", firstName);
-        Specification<Client> clientAgeSpecification = getSpecialization("age", age);
-        return clientRepo.findAll(Specification.where(clientFirstNameSpecification).and(clientAgeSpecification));
+    public List<Client> listAll(UUID id,
+                                String lastName,
+                                String firstName,
+                                String middleName,
+                                Integer age,
+                                Long passport) {
+
+        return clientRepo.findAll(Specification.where(getSpecialization("id", id))
+                .and(getSpecialization("lastName", lastName))
+                .and(getSpecialization("firstName", firstName))
+                .and(getSpecialization("middleName", middleName))
+                .and(getSpecialization("age", age))
+                .and(getSpecialization("passport", passport)
+        ));
     }
 
     @Override
@@ -61,7 +71,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     private Specification<Client> getSpecialization(String rootFieldName, Object value) {
-        if (value == null){
+        if (value == null || value.equals("")){
             return null;
         }
         return (root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get(rootFieldName), value);
