@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -20,7 +21,9 @@ public class MedicalRoomController {
 
     @GetMapping()
     public String medicalRooms(Model model){
-        model.addAttribute("medicalRooms", medicalRoomService.listAll());
+        List<MedicalRoom> medicalRooms = medicalRoomService.listAll();
+        model.addAttribute("medicalRooms", medicalRooms);
+        model.addAttribute("totalMedicalRoomNumber", medicalRooms.size());
         return "medicalRooms/medical-rooms";
     }
 

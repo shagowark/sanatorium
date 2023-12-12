@@ -2,7 +2,6 @@ package com.example.sanatorium.controllers;
 
 import com.example.sanatorium.models.Client;
 import com.example.sanatorium.services.ClientService;
-import com.example.sanatorium.services.impl.ClientServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -21,7 +21,9 @@ public class ClientController {
 
     @GetMapping()
     public String clients(Model model){
-        model.addAttribute("clients", clientService.listAll());
+        List<Client> clients = clientService.listAll();
+        model.addAttribute("clients", clients);
+        model.addAttribute("totalClientsNumber", clients.size());
         return "clients/clients";
     }
 

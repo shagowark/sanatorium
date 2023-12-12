@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -20,7 +21,9 @@ public class ResidentialApartmentController {
 
     @GetMapping
     public String apartments(Model model){
-        model.addAttribute("apartments", apartmentService.listAll());
+        List<ResidentialApartment> residentialApartments = apartmentService.listAll();
+        model.addAttribute("apartments", residentialApartments);
+        model.addAttribute("totalResidentialApartmentsNumber", residentialApartments.size());
         return "apartments/apartments";
     }
 

@@ -1,6 +1,7 @@
 <#import "../parts/common-base.ftlh" as base>
 
 <@base.page>
+    <h2>Клиенты</h2>
     <p><a href="/home">Основная страница</a></p>
     <b>Добавить клиента</b>
     <form action="/clients/create" method="post">
@@ -13,7 +14,7 @@
         <p><label><input type="submit" value="Добавить"></label></p>
     </form>
     <b>Список клиентов</b>
-
+    <p>Всего клиентов: ${totalClientsNumber}</p>
     <table class="table table-bordered">
         <tr>
             <th scope="col">ID</th>

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
 import java.util.UUID;
 @Controller
 @RequestMapping("/staff")
@@ -19,7 +20,9 @@ public class StaffController {
 
     @GetMapping()
     public String staff(Model model){
-        model.addAttribute("staff", staffService.listAll());
+        List<Staff> staff = staffService.listAll();
+        model.addAttribute("staff", staff);
+        model.addAttribute("totalStaffNumber", staff.size());
         return "staff/staff";
     }
 

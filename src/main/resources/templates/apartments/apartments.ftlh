@@ -1,6 +1,7 @@
 <#import "../parts/common-base.ftlh" as base>
 
 <@base.page>
+    <h2>Жилые комнаты</h2>
     <p><a href="/home">Основная страница</a></p>
     <b>Добавить жилую комнату</b>
     <form action="/apartments/create" method="post">
@@ -10,7 +11,7 @@
         <p><label><input type="submit" value="Добавить"></label></p>
     </form>
     <b>Список жилых комнат</b>
-
+    <p>Всего жилых комнат: ${totalResidentialApartmentsNumber}</p>
     <table class="table table-bordered">
         <tr>
             <th scope="col">ID</th>

@@ -1,6 +1,7 @@
 <#import "../parts/common-base.ftlh" as base>
 
 <@base.page>
+    <h2>Медицинские кабинеты</h2>
     <p><a href="/home">Основная страница</a></p>
     <b>Добавить медицинский кабинет</b>
     <form action="/medical-rooms/create" method="post">
@@ -10,7 +11,7 @@
         <p><label><input type="submit" value="Добавить"></label></p>
     </form>
     <b>Список медицинских кабинетов</b>
-
+    <p>Всего медицинских кабинетов: ${totalMedicalRoomNumber}</p>
     <table class="table table-bordered">
         <tr>
             <th scope="col">ID</th>

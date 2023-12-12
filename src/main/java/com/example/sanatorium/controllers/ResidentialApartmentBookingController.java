@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -20,7 +21,9 @@ public class ResidentialApartmentBookingController {
 
     @GetMapping()
     public String apartmentBookings(Model model) {
-        model.addAttribute("apartmentBookings", apartmentBookingService.listAll());
+        List<ResidentialApartmentBooking> residentialApartmentBookings = apartmentBookingService.listAll();
+        model.addAttribute("apartmentBookings", residentialApartmentBookings);
+        model.addAttribute("totalResidentialApartmentBookingsNumber", residentialApartmentBookings.size());
         return "apartmentsBooking/apartment-bookings";
     }
 
