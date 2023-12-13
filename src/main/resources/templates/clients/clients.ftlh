@@ -1,8 +1,10 @@
 <#import "../parts/common-base.ftlh" as base>
+<#import  "../parts/pager.ftlh" as pager>
 
 <@base.page>
     <h2>Клиенты</h2>
     <p><a href="/home">Основная страница</a></p>
+
     <b>Добавить клиента</b>
     <form action="/clients/create" method="post">
         <p><label>Фамилия: <input type="text" name="lastName" required></label></p>
@@ -14,6 +16,7 @@
         <p><label><input type="submit" value="Добавить"></label></p>
     </form>
     <hr>
+
     <b>Искать клиента</b>
     <form action="/clients" method="get">
         <p><label>ID: <input type="text" name="id"></label></p>
@@ -24,8 +27,10 @@
         <p><label>Паспортные данные (серия+номер слитно): <input type="number" name="passport"></label></p>
         <p><label><input type="submit" value="Искать"></label></p>
     </form>
+
     <b>Список клиентов</b>
     <p>Всего записей в таблице: ${totalClientsNumber}</p>
+    <@pager.pager url=url page=page />
     <table class="table table-bordered">
         <tr>
             <th scope="col">ID</th>
@@ -35,7 +40,7 @@
             <th scope="col">Возраст</th>
             <th scope="col">Паспортные данные</th>
         </tr>
-        <#foreach client in clients>
+        <#foreach client in page.content>
             <tr>
                 <td><a href="/clients/${client.id}">${client.id}</a></td>
                 <td>${client.lastName}</td>
@@ -46,5 +51,6 @@
             </tr>
         </#foreach>
     </table>
+    <@pager.pager url=url page=page />
 
 </@base.page>
