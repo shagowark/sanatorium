@@ -43,7 +43,6 @@ public class ClientController {
                 + "&middleName=" + (middleName ==  null ? "" : middleName)
                 + "&age=" + (age ==  null ? "" : age)
                 + "&passport=" + (passport ==  null ? "" : passport) ;
-        System.out.println(currentFullURL);
         model.addAttribute("url", currentFullURL);
         return "clients/clients";
     }
