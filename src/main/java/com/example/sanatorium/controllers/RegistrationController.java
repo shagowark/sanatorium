@@ -27,11 +27,11 @@ public class RegistrationController {
 
     @PostMapping
     public String registerUser(User user){
-        try {
+//        try {
             userService.createUser(user);
             return "auth/login";
-        } catch (UserAlreadyExistAuthenticationException e){
-            return "auth/registration";
-        }
+//        } catch (UserAlreadyExistAuthenticationException e){
+//            return "auth/registration";
+//        }
     }
 }
